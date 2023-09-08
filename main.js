@@ -1,9 +1,12 @@
 function setup(){
     //crie o canvas
 
-
+    //defina o parent dele para o canvas
+    
     //capture a imagem de vídeo
 
+    //defina o parent dele para o video
+    
 
     //crie o robôzinho do ml5 poseNet para detectar a pose
     
