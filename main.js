@@ -1,13 +1,14 @@
 function setup(){
-    canvas = createCanvas(400,400);
-    canvas.parent("canvas");
+    //crie o canvas
 
-    video = createCapture(VIDEO);
-    video.size(400,400);
-    video.parent("video");
 
-    poseNet = ml5.poseNet(video, pronto);
-    poseNet.on("pose", gotR)
+    //capture a imagem de vídeo
+
+
+    //crie o robôzinho do ml5 poseNet para detectar a pose
+    
+    //mande detectar a pose
+
 
     raquete = createSprite(20,200,20,100);
     raquete2 = createSprite(380,200,20,100);
@@ -17,41 +18,34 @@ function setup(){
     bola = createSprite(200,200,20,20);
     
 }
-function pronto(){
-    console.log("pronto")
-}
-var pontos = 0;
-var pulsoY = 50;
-var pulsoX = 0;
-var p = 0;
 
-function gotR(r){
-    if(r.length>0){
-        p = r[0].pose.keypoints[10].score 
-        pulsoY = r[0].pose.rightWrist.y;
-    }
-   
-}
+
+var pontos = 0;
+
+//crie uma variável para guardar a posiçao do pulso no eixo Y
+
+
+//crie a function gotResult e
+//mande guardar a posição do pulso na variável
+
+
+
 function draw(){
 
     background("white");
-    if(p>0.2 && pulsoY < 350 && pulsoY>50){
-        raquete.y = pulsoY;
-    }
-   
+
+    //se a posição do pulso for menor que 350 e maior que 50, mude a posição da raquete para que seja a mesma do pulso
+
   
     textSize(30);
     text(pontos, 50,50);
 
-    if(keyDown("space")){
-        bola.velocityX = 2;
-        bola.velocityY = 2; 
-        raquete2.velocityY = 2;
-    }
+    
+    
 
     if(bola.isTouching(raquete)){
         pontos++;
-        reiniciar()
+      
     }
     if( bola.x > 400|| bola.x < 0){
         reiniciar()
@@ -80,3 +74,6 @@ function reiniciar(){
     bola.x = 200;
     bola.y = 200;
 }
+
+/* CRIE UMA FUNÇÃO PARA INICIAR O JOGO */
+/*ELA DEFINE A VELOCIDADE DA BOLA E DA RAQUETE PARA 2 */
